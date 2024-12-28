@@ -12,30 +12,52 @@ permissions:
   id-token: write
 
 jobs:
+  # Single deploy job since we're just deploying
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    env:
-      directoriesToUpload: "./tests,./dist,./src,./themes.json"
-      
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
 
-      - name: Set artifact paths
-        shell: bash
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Create temporary directory
         run: |
-          echo "Formatting artifact upload paths"
-          {
-            echo 'ARTIFACT_PATHS<<EOF'
-            echo "${{ env.directoriesToUpload }}" | sed 's/,/\n/g'
-            echo EOF
-          } >> "$GITHUB_ENV"
+          echo "Creating temporary directory for artifact upload"
+          mkdir -p temp-artifact
+          for dir in ${{ env.directoriesToUpload }}; do
+            if [ -e "$dir" ]; then
+              echo "Copying $dir to temp-artifact"
+              cp -r "$dir" temp-artifact/
+            else
+              echo "Warning: $dir does not exist, skipping"
+            fi
+          done
+
+      - name: Debug contents
+        run: |
+          echo "Contents of temp-artifact:"
+          ls -l temp-artifact
 
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            ${{ env.ARTIFACT_PATHS }}
+          path: temp-artifact
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify index.html
+        run: |
+          test -f ./tests/index.html && echo "index.html exists" || echo "index.html missing"
+      
+      - name: Verify themes.json
+        run: |
+          test -f ./themes.json && echo "themes.json exists" || echo "themes.json missing"
