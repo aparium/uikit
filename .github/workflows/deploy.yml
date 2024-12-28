@@ -55,8 +55,8 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./tests/
-          destination: ./_site
+          source: ./apariumUikit/
+          destination: ./_site/tests/
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
 
