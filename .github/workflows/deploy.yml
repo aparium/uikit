@@ -33,11 +33,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Use your required Node.js version
-          cache: 'pnpm'
+          node-version: 18
 
       - name: Install pnpm
         run: npm install -g pnpm@9.8.0
+
+      # Enable pnpm caching
+      - name: Configure pnpm cache
+        run: pnpm config set store-dir ~/.pnpm-store
 
       # Install dependencies
       - name: Install dependencies
