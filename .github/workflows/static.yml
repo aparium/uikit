@@ -51,13 +51,13 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Include all required directories
-          path:
-            tests
-            dist
-            src
-            themes.json
-
+          # Upload entire repository
+          path: |
+            - "tests/**"
+            - "dist/**"
+            - "src/**"
+            - "themes.json"
+            
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
