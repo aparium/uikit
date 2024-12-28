@@ -1,67 +1,41 @@
-# Simple workflow for deploying static content to Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["develop"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      directoriesToUpload: "./tests,./dist,./src,./themes.json"
+      
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: true
+      - uses: actions/checkout@v3
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Debug paths
+      - name: Set artifact paths
+        shell: bash
         run: |
-          echo "Files in ./tests:"
-          ls ./tests || echo "Directory ./tests not found"
-          echo "Files in ./dist:"
-          ls ./dist || echo "Directory ./dist not found"
-          echo "Files in ./src:"
-          ls ./src || echo "Directory ./src not found"
-          echo "themes.json:"
-          cat themes.json || echo "themes.json not found"
-    
-      - name: Upload artifact
+          echo "Formatting artifact upload paths"
+          {
+            echo 'ARTIFACT_PATHS<<EOF'
+            echo "${{ env.directoriesToUpload }}" | sed 's/,/\n/g'
+            echo EOF
+          } >> "$GITHUB_ENV"
+
+      - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: |
-            - "tests/**"
-            - "dist/**"
-            - "src/**"
-            - "themes.json"
-            
+            ${{ env.ARTIFACT_PATHS }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Verify index.html
-        run: |
-          test -f ./tests/index.html && echo "index.html exists" || echo "index.html missing"
