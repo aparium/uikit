@@ -53,9 +53,9 @@ jobs:
         with:
           # Include all required directories
           path:
-            tests/
-            dist/
-            src/
+            tests
+            dist
+            src
             themes.json
 
       - name: Deploy to GitHub Pages
