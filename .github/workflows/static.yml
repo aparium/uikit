@@ -37,10 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Include the required folders and files
-          path: |
-            ./tests
-            ./dist
-            ./themes.json
+          path: './'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
