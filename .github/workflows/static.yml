@@ -53,9 +53,10 @@ jobs:
         with:
           # Include all required directories
           path: |
-            ./tests
-            ./dist
-            ./src
+            ${{ vars.BASE_PATH }}tests
+            ${{ vars.BASE_PATH }}dist
+            ${{ vars.BASE_PATH }}src
+            ${{ vars.BASE_PATH }}themes.json
 
       - name: Deploy to GitHub Pages
         id: deployment
