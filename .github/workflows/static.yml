@@ -56,7 +56,6 @@ jobs:
             ./tests
             ./dist
             ./src
-            ./themes.json
 
       - name: Deploy to GitHub Pages
         id: deployment
