@@ -1,0 +1,78 @@
+//
+// Component: Label
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+@label-border-radius: 0px;
+@label-text-transform: uppercase;
+@label-font-weight: 700;
+@label-warning-bg: @global-warning-background;
+@label-success-bg: @global-success-background;
+@label-danger-bg: @global-danger-background;
+@label-font-family: @font-family-sans;
+
+
+// Component
+// ========================================================================
+.hook-label() {
+    border-radius: @label-border-radius;
+    text-transform: @label-text-transform;
+    font-weight: @label-font-weight;
+    font-family: @label-font-family;
+    padding: .25% .75% .25% .75%;
+    letter-spacing: .1em;
+}
+
+// Color modifiers
+// ========================================================================
+.hook-label-success() {
+    color: #FFF;
+    background-color: @label-success-bg;
+}
+
+.hook-label-warning() {
+    color: #000;
+    background-color: @label-warning-bg;
+}
+
+.hook-label-danger() {
+    color: #FFF;
+    background-color: @label-danger-bg;
+}
+
+// Miscellaneous
+// ========================================================================
+.hook-label-misc() {
+    // Add custom styles if needed
+}
+
+// Inverse
+// ========================================================================
+.hook-inverse-label() {
+    background-color: #000;
+    color: #FFF;
+}
+
+// Apply mixins to UIKit classes
+// ========================================================================
+.uk-label {
+    .hook-label();
+}
+
+.uk-label-warning {
+    .hook-label-warning();
+}
+
+.uk-label-success {
+    .hook-label-success();
+}
+
+.uk-label-danger {
+    .hook-label-danger();
+}
+
+.uk-label-inverse {
+    .hook-inverse-label();
+}

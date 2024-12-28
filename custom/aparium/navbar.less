@@ -1,0 +1,142 @@
+//
+// Component: Navbar
+//
+// ========================================================================
+
+// Variables
+@navbar-background:                       #ffffff;
+@navbar-nav-hover-background:             #ffffff;
+@navbar-nav-onclick-background:           #ffffff;
+@navbar-nav-active-background:            #ffffff;
+@navbar-nav-font-family:                  @base-body-font-family;
+@navbar-nav-font-weight:                  400;
+
+@navbar-item-padding-horizontal:          0;
+@navbar-dropdown-margin:                  15px;
+@navbar-dropdown-padding:                 25px;
+@navbar-dropdown-background:              @global-background;
+
+@navbar-dropdown-nav-subtitle-font-size:  12px;
+@navbar-font-family:                      @font-family-serif;
+@navbar-color:                            @global-emphasis-color;
+@navbar-text-transform:                   uppercase;
+@navbar-margin-top:                       @global-medium-margin;
+@navbar-font-weight:                      400;
+@navbar-font-size:                        1.2em;
+@navbar-letter-spacing:                   0.02em;
+@navbar-item-transition:                  color 170ms ease-in-out, background-color 170ms ease-in-out;
+
+@navbar-gap:                              15px;
+@navbar-nav-gap:                          15px;
+@navbar-gap-m:                            30px;
+@navbar-nav-gap-m:                        30px;
+
+@navbar-nav-item-text-transform:          uppercase;
+@navbar-nav-item-padding-horizontal:      0;
+@navbar-nav-item-font-size:               @global-small-font-size;
+@navbar-dropdown-nav-font-size:           @global-small-font-size;
+@navbar-dropdown-box-shadow:              none; // 0 5px 12px rgba(0, 0, 0, 0.15);
+
+// Component
+.hook-navbar {
+    white-space: nowrap;
+
+}
+// Nav Items
+.hook-navbar-nav-item {
+    margin: 0 1.3vw;
+    padding: 0.618em 0;
+    text-transform: @navbar-nav-item-text-transform;
+    transition: @navbar-item-transition;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    color: #525252;
+    font-weight: @navbar-font-weight;
+    font-size: @navbar-font-size;
+ 
+    &:hover {
+        font-weight: bold;
+   
+    }
+
+    &:active,
+    &.uk-active {
+        outline: 0;
+        color: #000000;
+    }
+}
+
+// Dropdown
+.hook-navbar-dropdown {
+ 
+
+    &-large {
+        // Add styles for large dropdowns here.
+    }
+
+    &-active {
+        // Add active styles for inverse navbar nav items here.
+   
+    }
+    
+    &-dropbar {
+        box-shadow: none;
+
+        &-large {
+            // Add styles for large dropbars here.
+        }
+    }
+
+    &-nav {
+        font-size: @navbar-dropdown-nav-font-size;
+
+        &-subtitle {
+            font-size: @navbar-dropdown-nav-subtitle-font-size;
+        }
+    }
+}
+
+// Miscellaneous
+.hook-navbar-misc {
+    .uk-navbar-container {
+        transition: 0.1s ease-in-out;
+        transition-property: background-color;
+    }
+
+    @media (min-width: @breakpoint-medium) {
+        .uk-navbar-left,
+        .uk-navbar-right,
+        [class*='uk-navbar-center'] {
+            gap: @navbar-gap-m;
+        }
+
+        .uk-navbar-center-left {
+            right: ~'calc(100% + @{navbar-gap-m})';
+        }
+
+        .uk-navbar-center-right {
+            left: ~'calc(100% + @{navbar-gap-m})';
+        }
+
+        .uk-navbar-nav {
+            gap: @navbar-nav-gap-m;
+        }
+    }
+}
+
+// Inverse Styles
+.hook-inverse-navbar-nav-item {
+    &-hover {
+        // Add hover styles for inverse navbar nav items here.
+    }
+
+    &-onclick {
+        // Add onclick styles for inverse navbar nav items here.
+    }
+
+    &-active {
+        // Add active styles for inverse navbar nav items here.
+        top:1px
+    }
+}
