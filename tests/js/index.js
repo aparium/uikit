@@ -8,7 +8,7 @@ const keyinverse = '_uikit_inverse';
 
 // try to load themes.json
 const request = new XMLHttpRequest();
-request.open('GET', '../themes.json', false);
+request.open('GET', './themes.json', false);
 request.send(null);
 
 const themes = request.status === 200 ? JSON.parse(request.responseText) : {};
