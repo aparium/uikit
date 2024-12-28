@@ -52,11 +52,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Include all required directories
-          path: |
-            "/home/tests"
-            "/home/dist"
-            "/home/src"
-            "/home/themes.json"
+          path:
+            tests/
+            dist/
+            src/
+            themes.json
 
       - name: Deploy to GitHub Pages
         id: deployment
