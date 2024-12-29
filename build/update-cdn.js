@@ -8,6 +8,7 @@ const files = [
   '../apariumUikit/dist/js/index.js',
   '../apariumUikit/dist/js/preview.js',
   '../apariumUikit/dist/js/preview.min.js',
+  '../apariumUikit/dist/themes.json',
 ];
 
 // Replacement patterns
@@ -31,6 +32,10 @@ const replacements = [
   {
     target: '../themes.json',
     replacement: 'themes.json',
+  },
+  {
+    target: '../dist/css/uikit.aparium.css',
+    replacement: './css/uikit.aparium.css',
   },
 ];
 
