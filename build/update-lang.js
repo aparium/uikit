@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+export default async function updateLang() {
+
 // Directory to process
 const directory = '../apariumUikit/dist';
 
@@ -51,3 +53,7 @@ function processDirectory(dirPath) {
 
 // Start processing from the root directory
 processDirectory(directory);
+
+await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating async task
+console.log("Lang tags update completed.");
+}

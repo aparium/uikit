@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+export default async function updateCdn() {
+
 // Define paths for files to update
 const files = [
   '../apariumUikit/dist/js/index.js',
@@ -11,20 +13,24 @@ const files = [
 // Replacement patterns
 const replacements = [
   {
-    target: './dist/js/uikit-icons.js',
-    replacement: './uikit-icons.js',
+    target: '../dist/js/uikit-icons.js',
+    replacement: './js/uikit-icons.js',
   },
   {
-    target: './dist/js/uikit.js',
-    replacement: './uikit.js',
+    target: '../dist/js/uikit.js',
+    replacement: './js/uikit.js',
   },
   {
-    target: './dist/css/uikit-core.css',
+    target: '../dist/css/uikit-core.css',
     replacement: './css/uikit-core.css',
   },
   {
-    target: "'./dist/css/uikit.css",
+    target: '../dist/css/uikit.css',
     replacement: './css/uikit.css',
+  },
+  {
+    target: '../themes.json',
+    replacement: './themes.json',
   },
 ];
 
@@ -61,3 +67,7 @@ const main = async () => {
 };
 
 main().catch((err) => console.error('An error occurred:', err));
+
+await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating async task
+console.log("CDN update completed.");
+}

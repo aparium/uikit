@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+export default async function updateMetaTags() {
+
 const directory = '../apariumUikit/dist';
 
 const htmlSnippet = `
@@ -58,3 +60,8 @@ function processHtmlFile(filePath) {
 
 // Start processing from the root directory
 processDirectory(directory);
+
+
+await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating async task
+console.log("Meta tags update completed.");
+}

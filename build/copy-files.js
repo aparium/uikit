@@ -2,8 +2,9 @@ import fs from 'fs';
 import { exec } from 'child_process';
 import path from 'path';
 
+export default async function copyFiles() {
 
-// Define paths for file and directory copies
+ // Define paths for file and directory copies
 const paths = [
   {
     sourcePath: '../dist/css',
@@ -31,7 +32,7 @@ const paths = [
   },
   {
     sourcePath: '../custom/favicon',
-    destinationPath: '../apariumUikit/dist',
+    destinationPath: '../apariumUikit/dist/favicon',
   },
 ];
 
@@ -75,3 +76,8 @@ const main = async () => {
 };
 
 main();
+
+console.log("Copying files...");
+await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating async task
+console.log("Files copied successfully.");
+}
