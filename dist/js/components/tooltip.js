@@ -1,9 +1,9 @@
-/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikittooltip', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitTooltip = factory(global.UIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitTooltip = factory(global.apUIkit.util));
 })(this, (function (util) { 'use strict';
 
     function parseOptions(options, args = []) {
@@ -94,20 +94,20 @@
         },
         getPositionOffset(element = this.$el) {
           return util.toPx(
-            this.offset === false ? util.css(element, "--uk-position-offset") : this.offset,
+            this.offset === false ? util.css(element, "--ap-position-offset") : this.offset,
             this.axis === "x" ? "width" : "height",
             element
           ) * (util.includes(["left", "top"], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
         },
         getShiftOffset(element = this.$el) {
           return this.align === "center" ? 0 : util.toPx(
-            util.css(element, "--uk-position-shift-offset"),
+            util.css(element, "--ap-position-shift-offset"),
             this.axis === "y" ? "width" : "height",
             element
           ) * (util.includes(["left", "top"], this.align) ? 1 : -1);
         },
         getViewportOffset(element) {
-          return util.toPx(util.css(element, "--uk-position-viewport-offset"));
+          return util.toPx(util.css(element, "--ap-position-viewport-offset"));
         }
       }
     };
@@ -137,8 +137,8 @@
         velocity: 0.2,
         origin: false,
         transition: "ease",
-        clsEnter: "uk-togglable-enter",
-        clsLeave: "uk-togglable-leave"
+        clsEnter: "ap-togglable-enter",
+        clsLeave: "ap-togglable-leave"
       },
       computed: {
         hasAnimation: ({ animation }) => !!animation[0],
@@ -321,9 +321,9 @@
       mixins: [Container, Togglable, Position],
       data: {
         pos: "top",
-        animation: ["uk-animation-scale-up"],
+        animation: ["ap-animation-scale-up"],
         duration: 100,
-        cls: "uk-active"
+        cls: "ap-active"
       },
       connected() {
         makeFocusable(this.$el);
@@ -367,7 +367,7 @@
         async _show(title, id) {
           this.tooltip = util.append(
             this.container,
-            `<div id="${id}" class="uk-${this.$options.name}" role="tooltip"> <div class="uk-${this.$options.name}-inner">${title}</div> </div>`
+            `<div id="${id}" class="ap-${this.$options.name}" role="tooltip"> <div class="ap-${this.$options.name}-inner">${title}</div> </div>`
           );
           util.on(this.tooltip, "toggled", (e, toggled) => {
             if (!toggled) {
@@ -442,8 +442,8 @@
       });
     }
 
-    if (typeof window !== "undefined" && window.UIkit) {
-      window.UIkit.component("tooltip", Component);
+    if (typeof window !== "undefined" && window.apUIkit) {
+      window.apUIkit.component("tooltip", Component);
     }
 
     return Component;

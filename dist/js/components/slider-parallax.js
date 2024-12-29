@@ -1,9 +1,9 @@
-/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitslider_parallax', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitSlider_parallax = factory(global.UIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitSlider_parallax = factory(global.apUIkit.util));
 })(this, (function (uikitUtil) { 'use strict';
 
     var Media = {
@@ -37,7 +37,7 @@
     function toMedia(value, element) {
       if (uikitUtil.isString(value)) {
         if (uikitUtil.startsWith(value, "@")) {
-          value = uikitUtil.toFloat(uikitUtil.css(element, `--uk-breakpoint-${value.slice(1)}`));
+          value = uikitUtil.toFloat(uikitUtil.css(element, `--ap-breakpoint-${value.slice(1)}`));
         } else if (isNaN(value)) {
           return value;
         }
@@ -629,8 +629,8 @@
       return isIn(type) ^ dir < 0 ? percent : 1 - percent;
     }
 
-    if (typeof window !== "undefined" && window.UIkit) {
-      window.UIkit.component("sliderParallax", Component);
+    if (typeof window !== "undefined" && window.apUIkit) {
+      window.apUIkit.component("sliderParallax", Component);
     }
 
     return Component;

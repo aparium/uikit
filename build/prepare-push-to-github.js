@@ -6,32 +6,33 @@ import path from 'path';
 import './update-html.js';
 import './update-lang.js';
 import './update-cdn.js';
+import './generate-inject-markups-favicons.js';
 
 // Define paths for file and directory copies
 const paths = [
   {
-    sourcePath: './dist/css',
-    destinationPath: './apariumUikit/dist/css',
+    sourcePath: '../dist/css',
+    destinationPath: '../apariumUikit/dist/css',
   },
   {
-    sourcePath: './dist/js',
-    destinationPath: './apariumUikit/dist/js',
+    sourcePath: '../dist/js',
+    destinationPath: '../apariumUikit/dist/js',
   },
   {
-    sourcePath: './themes.json',
-    destinationPath: './apariumUikit/themes.json',
+    sourcePath: '../themes.json',
+    destinationPath: '../apariumUikit/themes.json',
   },
   {
-    sourcePath: './tests/js/test.js',
-    destinationPath: './apariumUikit/dist/js/preview.js',
+    sourcePath: '../tests/js/test.js',
+    destinationPath: '../apariumUikit/dist/js/preview.js',
   },
   {
-    sourcePath: './tests/js/test.min.js',
-    destinationPath: './apariumUikit/dist/js/preview.min.js',
+    sourcePath: '../tests/js/test.min.js',
+    destinationPath: '../apariumUikit/dist/js/preview.min.js',
   },
   {
-    sourcePath: './src',
-    destinationPath: './apariumUikit/dist',
+    sourcePath: '../src',
+    destinationPath: '../apariumUikit/dist',
   },
 ];
 
@@ -49,8 +50,8 @@ const copyFiles = async () => {
 
 // Copy HTML files from `tests` to `apariumUikit/dist`
 const copyHtmlFiles = async () => {
-  const sourceHtmlPath = './tests';
-  const destinationHtmlPath = './apariumUikit/dist';
+  const sourceHtmlPath = '../tests';
+  const destinationHtmlPath = '../apariumUikit/dist';
 
   try {
     const entries = await fs.promises.readdir(sourceHtmlPath, { withFileTypes: true });
@@ -88,7 +89,7 @@ const runAdditionalScripts = async () => {
 // Push changes to GitHub
 const pushToGitHub = async () => {
   const gitCommand = 'git add . && git commit -m "Update to theme files" && git push';
-  exec(gitCommand, { cwd: './apariumUikit' }, (error, stdout, stderr) => {
+  exec(gitCommand, { cwd: '../apariumUikit' }, (error, stdout, stderr) => {
     if (error) {
       console.error('Git push failed:', stderr);
     } else {

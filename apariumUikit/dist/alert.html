@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Aparium" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Alert - Aparium UIkit Preview</title>
+        <script src="js/preview.js"></script>
+    </head>
+
+    <body>
+
+        <div class="uk-container">
+
+            <h1>Alert</h1>
+
+            <div uk-alert>
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Alert!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="uk-alert-primary" uk-alert>
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Primary!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="uk-alert-success" uk-alert>
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Success!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="uk-alert-warning" uk-alert>
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Warning!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Danger!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <h2>More Content</h2>
+
+            <div uk-alert>
+                <button class="uk-alert-close" type="button" uk-close></button>
+                <h3>Alert!</h3>
+                <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="uk-alert-primary" uk-alert>
+                <button class="uk-alert-close" type="button" uk-close></button>
+                <h3>Primary!</h3>
+                <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="uk-alert-success" uk-alert>
+                <button class="uk-alert-close" type="button" uk-close></button>
+                <h3>Success!</h3>
+                <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="uk-alert-warning" uk-alert>
+                <button class="uk-alert-close" type="button" uk-close></button>
+                <h3>Warning!</h3>
+                <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="uk-alert-danger" uk-alert>
+                <button class="uk-alert-close" type="button" uk-close></button>
+                <h3>Danger!</h3>
+                <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <h2>Animations</h2>
+
+            <div uk-alert="animation: uk-animation-scale-up; duration: 1000">
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Alert!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <div class="uk-alert-primary" uk-alert="animation: uk-animation-scale-down">
+                <a class="uk-alert-close" href uk-close></a>
+                <p><strong>Primary!</strong> Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            <h2>JavaScript Options</h2>
+
+            <div class="uk-overflow-auto">
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Value</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>animation</code></td>
+                            <td>Boolean</td>
+                            <td>true</td>
+                            <td>On close fade out.</td>
+                        </tr>
+                        <tr>
+                            <td><code>duration</code></td>
+                            <td>Number</td>
+                            <td>150</td>
+                            <td>The animation duration.</td>
+                        </tr>
+                        <tr>
+                            <td><code>sel-close</code></td>
+                            <td>CSS selector</td>
+                            <td>.uk-alert-close</td>
+                            <td>The close trigger element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </body>
+</html>

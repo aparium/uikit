@@ -1,9 +1,9 @@
-/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitnotification', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitNotification = factory(global.UIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitNotification = factory(global.apUIkit.util));
 })(this, (function (uikitUtil) { 'use strict';
 
     var Container = {
@@ -30,9 +30,9 @@
         timeout: 5e3,
         group: "",
         pos: "top-center",
-        clsContainer: "uk-notification",
-        clsClose: "uk-notification-close",
-        clsMsg: "uk-notification-message"
+        clsContainer: "ap-notification",
+        clsClose: "ap-notification-close",
+        clsMsg: "ap-notification-message"
       },
       install,
       computed: {
@@ -51,7 +51,7 @@
         this.$mount(
           uikitUtil.append(
             container,
-            `<div class="${this.clsMsg}${this.status ? ` ${this.clsMsg}-${this.status}` : ""}" role="alert"> <a href class="${this.clsClose}" data-uk-close></a> <div>${this.message}</div> </div>`
+            `<div class="${this.clsMsg}${this.status ? ` ${this.clsMsg}-${this.status}` : ""}" role="alert"> <a href class="${this.clsClose}" data-ap-close></a> <div>${this.message}</div> </div>`
           )
         );
       },
@@ -103,10 +103,10 @@
         }
       }
     };
-    function install(UIkit) {
-      UIkit.notification.closeAll = function(group, immediate) {
+    function install(apUIkit) {
+      apUIkit.notification.closeAll = function(group, immediate) {
         uikitUtil.apply(document.body, (el) => {
-          const notification = UIkit.getComponent(el, "notification");
+          const notification = apUIkit.getComponent(el, "notification");
           if (notification && (!group || group === notification.group)) {
             notification.close(immediate);
           }
@@ -114,8 +114,8 @@
       };
     }
 
-    if (typeof window !== "undefined" && window.UIkit) {
-      window.UIkit.component("notification", Component);
+    if (typeof window !== "undefined" && window.apUIkit) {
+      window.apUIkit.component("notification", Component);
     }
 
     return Component;

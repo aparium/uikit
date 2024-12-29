@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "uikit-util": ["src/js/util"]
+        },
+        "typeRoots": ["./node_modules/@types", "./types"], // Include custom types
+        "checkJs": true // Enable type checking for JavaScript files
+    },
+    "exclude": ["node_modules"]
+}

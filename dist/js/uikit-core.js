@@ -1,9 +1,9 @@
-/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define('uikit', factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkit = factory());
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkit = factory());
 })(this, (function () { 'use strict';
 
     const { hasOwnProperty, toString } = Object.prototype;
@@ -631,7 +631,7 @@
       }
     });
 
-    const clsTransition = "uk-transition";
+    const clsTransition = "ap-transition";
     const transitionEnd = "transitionend";
     const transitionCanceled = "transitioncanceled";
     function transition$1(element, props, duration = 400, timing = "linear") {
@@ -683,7 +683,7 @@
         return hasClass(element, clsTransition);
       }
     };
-    const clsAnimation = "uk-animation";
+    const clsAnimation = "ap-animation";
     const animationEnd = "animationend";
     const animationCanceled = "animationcanceled";
     function animate$2(element, animation, duration = 200, origin, out) {
@@ -697,7 +697,7 @@
               animation,
               clsAnimation,
               `${clsAnimation}-${out ? "leave" : "enter"}`,
-              origin && `uk-transform-origin-${origin}`,
+              origin && `ap-transform-origin-${origin}`,
               out && `${clsAnimation}-reverse`
             ];
             const timer = setTimeout(() => trigger(element2, animationEnd), duration);
@@ -1332,7 +1332,7 @@
         let coverEl;
         for (const el of toWindow(target).document.elementsFromPoint(left + width / 2, position)) {
           if (!el.contains(target) && // If e.g. Offcanvas is not yet closed
-          !hasClass(el, "uk-togglable-leave") && (hasPosition(el, "fixed") && zIndex(
+          !hasClass(el, "ap-togglable-leave") && (hasPosition(el, "fixed") && zIndex(
             parents(target).reverse().find(
               (parent2) => !parent2.contains(el) && !hasPosition(parent2, "static")
             )
@@ -2154,7 +2154,7 @@
     App.options = {};
     App.version = "3.21.16";
 
-    const PREFIX = "uk-";
+    const PREFIX = "ap-";
     const DATA = "__uikit__";
     const components$1 = {};
     function component(name, options) {
@@ -2301,7 +2301,7 @@
       App.extend = function(options) {
         options || (options = {});
         const Super = this;
-        const Sub = function UIkitComponent(options2) {
+        const Sub = function apUIkitComponent(options2) {
           init$1(this, options2);
         };
         Sub.prototype = Object.create(Super.prototype);
@@ -2523,20 +2523,20 @@
         },
         getPositionOffset(element = this.$el) {
           return toPx(
-            this.offset === false ? css(element, "--uk-position-offset") : this.offset,
+            this.offset === false ? css(element, "--ap-position-offset") : this.offset,
             this.axis === "x" ? "width" : "height",
             element
           ) * (includes(["left", "top"], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
         },
         getShiftOffset(element = this.$el) {
           return this.align === "center" ? 0 : toPx(
-            css(element, "--uk-position-shift-offset"),
+            css(element, "--ap-position-shift-offset"),
             this.axis === "y" ? "width" : "height",
             element
           ) * (includes(["left", "top"], this.align) ? 1 : -1);
         },
         getViewportOffset(element) {
-          return toPx(css(element, "--uk-position-viewport-offset"));
+          return toPx(css(element, "--ap-position-viewport-offset"));
         }
       }
     };
@@ -2566,8 +2566,8 @@
         velocity: 0.2,
         origin: false,
         transition: "ease",
-        clsEnter: "uk-togglable-enter",
-        clsLeave: "uk-togglable-leave"
+        clsEnter: "ap-togglable-enter",
+        clsLeave: "ap-togglable-leave"
       },
       computed: {
         hasAnimation: ({ animation }) => !!animation[0],
@@ -2764,9 +2764,9 @@
         animation: true,
         collapsible: true,
         multiple: false,
-        clsOpen: "uk-open",
-        toggle: "> .uk-accordion-title",
-        content: "> .uk-accordion-content",
+        clsOpen: "ap-open",
+        toggle: "> .ap-accordion-title",
+        content: "> .ap-accordion-content",
         offset: 0
       },
       computed: {
@@ -2929,7 +2929,7 @@
       },
       data: {
         animation: true,
-        selClose: ".uk-alert-close",
+        selClose: ".ap-alert-close",
         duration: 150
       },
       events: {
@@ -3204,8 +3204,8 @@
         clsDrop: false,
         animateOut: false,
         bgScroll: true,
-        animation: ["uk-animation-fade"],
-        cls: "uk-open",
+        animation: ["ap-animation-fade"],
+        cls: "ap-open",
         container: false,
         closeOnScroll: false
       },
@@ -3232,7 +3232,7 @@
         this.clsDrop = this.$props.clsDrop || this.$options.id;
       },
       connected() {
-        addClass(this.$el, "uk-drop", this.clsDrop);
+        addClass(this.$el, "ap-drop", this.clsDrop);
         if (this.toggle && !this.targetEl) {
           this.targetEl = createToggleComponent(this);
         }
@@ -3248,7 +3248,7 @@
       events: [
         {
           name: "click",
-          delegate: () => ".uk-drop-close",
+          delegate: () => ".ap-drop-close",
           handler(e) {
             e.preventDefault();
             this.hide(false);
@@ -3428,11 +3428,11 @@
           return active$1 === this;
         },
         isDelaying() {
-          return [this.$el, ...$$(".uk-drop", this.$el)].some((el) => this.tracker.movesTo(el));
+          return [this.$el, ...$$(".ap-drop", this.$el)].some((el) => this.tracker.movesTo(el));
         },
         position() {
           const restoreScrollPosition = storeScrollPosition(this.$el);
-          removeClass(this.$el, "uk-drop-stack");
+          removeClass(this.$el, "ap-drop-stack");
           css(this.$el, this._style);
           this.$el.hidden = true;
           const viewports = this.target.map((target) => getViewport$1(this.$el, target));
@@ -3456,7 +3456,7 @@
           this.$el.hidden = false;
           css(this.$el, "maxWidth", "");
           if (this.$el.offsetWidth > maxWidth) {
-            addClass(this.$el, "uk-drop-stack");
+            addClass(this.$el, "ap-drop-stack");
           }
           css(this.$el, "maxWidth", maxWidth);
           this.positionAt(this.$el, this.target, this.boundary);
@@ -3558,8 +3558,8 @@
       },
       data: {
         align: isRtl ? "right" : "left",
-        clsDrop: "uk-dropdown",
-        clsDropbar: "uk-dropnav-dropbar",
+        clsDrop: "ap-dropdown",
+        clsDropbar: "ap-dropnav-dropbar",
         boundary: true,
         dropbar: false,
         dropbarAnchor: false,
@@ -3600,10 +3600,10 @@
         dropbar(dropbar) {
           addClass(
             dropbar,
-            "uk-dropbar",
-            "uk-dropbar-top",
+            "ap-dropbar",
+            "ap-dropbar-top",
             this.clsDropbar,
-            `uk-${this.$options.name}-dropbar`
+            `ap-${this.$options.name}-dropbar`
           );
         },
         dropdowns() {
@@ -3888,8 +3888,8 @@
         firstColumn: Boolean
       },
       data: {
-        margin: "uk-margin-small-top",
-        firstColumn: "uk-first-column"
+        margin: "ap-margin-small-top",
+        firstColumn: "ap-first-column"
       },
       observe: [
         mutation({
@@ -3990,8 +3990,8 @@
         parallaxJustify: Boolean
       },
       data: {
-        margin: "uk-grid-margin",
-        clsStack: "uk-grid-stack",
+        margin: "ap-grid-margin",
+        clsStack: "ap-grid-stack",
         masonry: false,
         parallax: 0,
         parallaxStart: 0,
@@ -3999,7 +3999,7 @@
         parallaxJustify: false
       },
       connected() {
-        this.masonry && addClass(this.$el, "uk-flex-top", "uk-flex-wrap-top");
+        this.masonry && addClass(this.$el, "ap-flex-top", "ap-flex-wrap-top");
       },
       observe: scroll$1({ filter: ({ parallax, parallaxJustify }) => parallax || parallaxJustify }),
       update: [
@@ -4299,7 +4299,7 @@
 
     var navbarParentIcon = "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><polyline fill=\"none\" stroke=\"#000\" stroke-width=\"1.1\" points=\"1 3.5 6 8.5 11 3.5\"/></svg>";
 
-    var navbarToggleIcon = "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\"><style>.uk-navbar-toggle-icon svg&gt;[class*=&quot;line-&quot;]{transition:0.2s ease-in-out;transition-property:transform, opacity;transform-origin:center;opacity:1}.uk-navbar-toggle-icon svg&gt;.line-3{opacity:0}.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-3{opacity:1}.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-2{transform:rotate(45deg)}.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-3{transform:rotate(-45deg)}.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-1,.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-4{opacity:0}.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-1{transform:translateY(6px) scaleX(0)}.uk-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-4{transform:translateY(-6px) scaleX(0)}</style><rect width=\"20\" height=\"2\" y=\"3\" class=\"line-1\"/><rect width=\"20\" height=\"2\" y=\"9\" class=\"line-2\"/><rect width=\"20\" height=\"2\" y=\"9\" class=\"line-3\"/><rect width=\"20\" height=\"2\" y=\"15\" class=\"line-4\"/></svg>";
+    var navbarToggleIcon = "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\"><style>.ap-navbar-toggle-icon svg&gt;[class*=&quot;line-&quot;]{transition:0.2s ease-in-out;transition-property:transform, opacity;transform-origin:center;opacity:1}.ap-navbar-toggle-icon svg&gt;.line-3{opacity:0}.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-3{opacity:1}.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-2{transform:rotate(45deg)}.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-3{transform:rotate(-45deg)}.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-1,.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-4{opacity:0}.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-1{transform:translateY(6px) scaleX(0)}.ap-navbar-toggle-animate[aria-expanded=&quot;true&quot;] svg&gt;.line-4{transform:translateY(-6px) scaleX(0)}</style><rect width=\"20\" height=\"2\" y=\"3\" class=\"line-1\"/><rect width=\"20\" height=\"2\" y=\"9\" class=\"line-2\"/><rect width=\"20\" height=\"2\" y=\"9\" class=\"line-3\"/><rect width=\"20\" height=\"2\" y=\"15\" class=\"line-4\"/></svg>";
 
     var overlayIcon = "<svg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\"><rect width=\"1\" height=\"40\" x=\"19\" y=\"0\"/><rect width=\"40\" height=\"1\" x=\"0\" y=\"19\"/></svg>";
 
@@ -4456,7 +4456,7 @@
       props: { icon: String },
       isIcon: true,
       beforeConnect() {
-        addClass(this.$el, "uk-icon");
+        addClass(this.$el, "ap-icon");
       },
       methods: {
         async getSvg() {
@@ -4482,7 +4482,7 @@
       extends: IconComponent,
       beforeConnect() {
         const icon = this.$props.icon;
-        this.icon = this.$el.closest(".uk-nav-primary") ? `${icon}-large` : icon;
+        this.icon = this.$el.closest(".ap-nav-primary") ? `${icon}-large` : icon;
       }
     };
     const Search = {
@@ -4490,8 +4490,8 @@
       mixins: [I18n],
       i18n: { toggle: "Open Search", submit: "Submit Search" },
       beforeConnect() {
-        const isToggle = hasClass(this.$el, "uk-search-toggle") || hasClass(this.$el, "uk-navbar-toggle");
-        this.icon = isToggle ? "search-toggle-icon" : hasClass(this.$el, "uk-search-icon") && this.$el.closest(".uk-search-large") ? "search-large" : this.$el.closest(".uk-search-medium") ? "search-medium" : this.$props.icon;
+        const isToggle = hasClass(this.$el, "ap-search-toggle") || hasClass(this.$el, "ap-navbar-toggle");
+        this.icon = isToggle ? "search-toggle-icon" : hasClass(this.$el, "ap-search-icon") && this.$el.closest(".ap-search-large") ? "search-large" : this.$el.closest(".ap-search-medium") ? "search-medium" : this.$props.icon;
         if (hasAttr(this.$el, "aria-label")) {
           return;
         }
@@ -4537,9 +4537,9 @@
     const Slidenav = {
       extends: ButtonComponent,
       beforeConnect() {
-        addClass(this.$el, "uk-slidenav");
+        addClass(this.$el, "ap-slidenav");
         const icon = this.$props.icon;
-        this.icon = hasClass(this.$el, "uk-slidenav-large") ? `${icon}-large` : icon;
+        this.icon = hasClass(this.$el, "ap-slidenav-large") ? `${icon}-large` : icon;
       }
     };
     const NavbarToggleIcon = {
@@ -4550,7 +4550,7 @@
       extends: ButtonComponent,
       i18n: { label: "Close" },
       beforeConnect() {
-        this.icon = `close-${hasClass(this.$el, "uk-close-large") ? "large" : "icon"}`;
+        this.icon = `close-${hasClass(this.$el, "ap-close-large") ? "large" : "icon"}`;
       }
     };
     const Marker = {
@@ -4572,17 +4572,17 @@
       data: { role: null }
     };
     const parsed = {};
-    function install$1(UIkit) {
-      UIkit.icon.add = (name, svg) => {
+    function install$1(apUIkit) {
+      apUIkit.icon.add = (name, svg) => {
         const added = isString(name) ? { [name]: svg } : name;
         each(added, (svg2, name2) => {
           icons[name2] = svg2;
           delete parsed[name2];
         });
-        if (UIkit._initialized) {
+        if (apUIkit._initialized) {
           apply(
             document.body,
-            (el) => each(UIkit.getComponents(el), (cmp) => {
+            (el) => each(apUIkit.getComponents(el), (cmp) => {
               cmp.$options.isIcon && cmp.icon in added && cmp.$reset();
             })
           );
@@ -4787,7 +4787,7 @@
           for (const target of toNodes(this.target)) {
             let color = !this.selActive || matches(target, this.selActive) ? findTargetColor(target) : "";
             if (color !== false) {
-              replaceClass(target, "uk-light uk-dark", color);
+              replaceClass(target, "ap-light ap-dark", color);
             }
           }
         }
@@ -4810,17 +4810,17 @@
           if (target.contains(element) || !checkVisibility(element) || element.closest('[class*="-leave"]') && elements.some((el) => element !== el && matches(el, '[class*="-enter"]'))) {
             continue;
           }
-          const color = css(element, "--uk-inverse");
+          const color = css(element, "--ap-inverse");
           if (color) {
             if (color === last) {
-              return `uk-${color}`;
+              return `ap-${color}`;
             }
             last = color;
             break;
           }
         }
       }
-      return last ? `uk-${last}` : "";
+      return last ? `ap-${last}` : "";
     }
     function checkVisibility(element) {
       if (css(element, "visibility") !== "visible") {
@@ -4866,7 +4866,7 @@
     function toMedia(value, element) {
       if (isString(value)) {
         if (startsWith(value, "@")) {
-          value = toFloat(css(element, `--uk-breakpoint-${value.slice(1)}`));
+          value = toFloat(css(element, `--ap-breakpoint-${value.slice(1)}`));
         } else if (isNaN(value)) {
           return value;
         }
@@ -4881,12 +4881,12 @@
       },
       data: {
         fill: "",
-        clsWrapper: "uk-leader-fill",
-        clsHide: "uk-leader-hide",
+        clsWrapper: "ap-leader-fill",
+        clsHide: "ap-leader-hide",
         attrFill: "data-fill"
       },
       computed: {
-        fill: ({ fill }, $el) => fill || css($el, "--uk-leader-fill-content")
+        fill: ({ fill }, $el) => fill || css($el, "--ap-leader-fill-content")
       },
       connected() {
         [this.wrapper] = wrapInner(this.$el, `<span class="${this.clsWrapper}">`);
@@ -4924,7 +4924,7 @@
         role: String
       },
       data: {
-        cls: "uk-open",
+        cls: "ap-open",
         escClose: true,
         bgClose: true,
         overlay: true,
@@ -5124,9 +5124,9 @@
       install,
       mixins: [Modal],
       data: {
-        clsPage: "uk-modal-page",
-        selPanel: ".uk-modal-dialog",
-        selClose: '[class*="uk-modal-close"]'
+        clsPage: "ap-modal-page",
+        selPanel: ".ap-modal-dialog",
+        selClose: '[class*="ap-modal-close"]'
       },
       events: [
         {
@@ -5142,8 +5142,8 @@
           name: "show",
           self: true,
           handler() {
-            if (hasClass(this.panel, "uk-margin-auto-vertical")) {
-              addClass(this.$el, "uk-flex");
+            if (hasClass(this.panel, "ap-margin-auto-vertical")) {
+              addClass(this.$el, "ap-flex");
             } else {
               css(this.$el, "display", "block");
             }
@@ -5155,14 +5155,14 @@
           self: true,
           handler() {
             css(this.$el, "display", "");
-            removeClass(this.$el, "uk-flex");
+            removeClass(this.$el, "ap-flex");
           }
         }
       ]
     };
     function install({ modal }) {
       modal.dialog = function(content, options) {
-        const dialog = modal($(`<div><div class="uk-modal-dialog">${content}</div></div>`), {
+        const dialog = modal($(`<div><div class="ap-modal-dialog">${content}</div></div>`), {
           stack: true,
           role: "alertdialog",
           ...options
@@ -5181,20 +5181,20 @@
       };
       modal.alert = function(message, options) {
         return openDialog(
-          ({ i18n }) => `<div class="uk-modal-body">${isString(message) ? message : html(message)}</div> <div class="uk-modal-footer uk-text-right"> <button class="uk-button uk-button-primary uk-modal-close" autofocus>${i18n.ok}</button> </div>`,
+          ({ i18n }) => `<div class="ap-modal-body">${isString(message) ? message : html(message)}</div> <div class="ap-modal-footer ap-text-right"> <button class="ap-button ap-button-primary ap-modal-close" autofocus>${i18n.ok}</button> </div>`,
           options
         );
       };
       modal.confirm = function(message, options) {
         return openDialog(
-          ({ i18n }) => `<form> <div class="uk-modal-body">${isString(message) ? message : html(message)}</div> <div class="uk-modal-footer uk-text-right"> <button class="uk-button uk-button-default uk-modal-close" type="button">${i18n.cancel}</button> <button class="uk-button uk-button-primary" autofocus>${i18n.ok}</button> </div> </form>`,
+          ({ i18n }) => `<form> <div class="ap-modal-body">${isString(message) ? message : html(message)}</div> <div class="ap-modal-footer ap-text-right"> <button class="ap-button ap-button-default ap-modal-close" type="button">${i18n.cancel}</button> <button class="ap-button ap-button-primary" autofocus>${i18n.ok}</button> </div> </form>`,
           options,
           () => Promise.reject()
         );
       };
       modal.prompt = function(message, value, options) {
         const promise = openDialog(
-          ({ i18n }) => `<form class="uk-form-stacked"> <div class="uk-modal-body"> <label>${isString(message) ? message : html(message)}</label> <input class="uk-input" autofocus> </div> <div class="uk-modal-footer uk-text-right"> <button class="uk-button uk-button-default uk-modal-close" type="button">${i18n.cancel}</button> <button class="uk-button uk-button-primary">${i18n.ok}</button> </div> </form>`,
+          ({ i18n }) => `<form class="ap-form-stacked"> <div class="ap-modal-body"> <label>${isString(message) ? message : html(message)}</label> <input class="ap-input" autofocus> </div> <div class="ap-modal-footer ap-text-right"> <button class="ap-button ap-button-default ap-modal-close" type="button">${i18n.cancel}</button> <button class="ap-button ap-button-primary">${i18n.ok}</button> </div> </form>`,
           options,
           () => null,
           () => input.value
@@ -5235,33 +5235,33 @@
     var nav = {
       extends: Accordion,
       data: {
-        targets: "> .uk-parent",
+        targets: "> .ap-parent",
         toggle: "> a",
         content: "> ul"
       }
     };
 
-    const clsNavbarTransparent = "uk-navbar-transparent";
+    const clsNavbarTransparent = "ap-navbar-transparent";
     var navbar = {
       extends: Dropnav,
       props: {
         dropbarTransparentMode: Boolean
       },
       data: {
-        clsDrop: "uk-navbar-dropdown",
-        selNavItem: ".uk-navbar-nav > li > a,a.uk-navbar-item,button.uk-navbar-item,.uk-navbar-item a,.uk-navbar-item button,.uk-navbar-toggle",
+        clsDrop: "ap-navbar-dropdown",
+        selNavItem: ".ap-navbar-nav > li > a,a.ap-navbar-item,button.ap-navbar-item,.ap-navbar-item a,.ap-navbar-item button,.ap-navbar-toggle",
         // Simplify with :where() selector once browser target is Safari 14+
         dropbarTransparentMode: false
       },
       computed: {
-        navbarContainer: (_, $el) => $el.closest(".uk-navbar-container")
+        navbarContainer: (_, $el) => $el.closest(".ap-navbar-container")
       },
       watch: {
         items() {
-          const justify = hasClass(this.$el, "uk-navbar-justify");
-          const containers = $$(".uk-navbar-nav, .uk-navbar-left, .uk-navbar-right", this.$el);
+          const justify = hasClass(this.$el, "ap-navbar-justify");
+          const containers = $$(".ap-navbar-nav, .ap-navbar-left, .ap-navbar-right", this.$el);
           for (const container of containers) {
-            const items = justify ? $$(".uk-navbar-nav > li > a, .uk-navbar-item, .uk-navbar-toggle", container).length : "";
+            const items = justify ? $$(".ap-navbar-nav > li > a, .ap-navbar-item, .ap-navbar-toggle", container).length : "";
             css(container, "flexGrow", items);
           }
         }
@@ -5301,7 +5301,7 @@
             return this.dropbarTransparentMode;
           }
           const drop = this.getDropdown(el);
-          if (drop && hasClass(el, "uk-dropbar")) {
+          if (drop && hasClass(el, "ap-dropbar")) {
             return drop.inset ? "behind" : "remove";
           }
         },
@@ -5328,15 +5328,15 @@
         mode: "slide",
         flip: false,
         overlay: false,
-        clsPage: "uk-offcanvas-page",
-        clsContainer: "uk-offcanvas-container",
-        selPanel: ".uk-offcanvas-bar",
-        clsFlip: "uk-offcanvas-flip",
-        clsContainerAnimation: "uk-offcanvas-container-animation",
-        clsSidebarAnimation: "uk-offcanvas-bar-animation",
-        clsMode: "uk-offcanvas",
-        clsOverlay: "uk-offcanvas-overlay",
-        selClose: ".uk-offcanvas-close",
+        clsPage: "ap-offcanvas-page",
+        clsContainer: "ap-offcanvas-container",
+        selPanel: ".ap-offcanvas-bar",
+        clsFlip: "ap-offcanvas-flip",
+        clsContainerAnimation: "ap-offcanvas-container-animation",
+        clsSidebarAnimation: "ap-offcanvas-bar-animation",
+        clsMode: "ap-offcanvas",
+        clsOverlay: "ap-offcanvas-overlay",
+        selClose: ".ap-offcanvas-close",
         container: false,
         swiping: true
       },
@@ -5444,8 +5444,8 @@
         minHeight: Number
       },
       data: {
-        selContainer: ".uk-modal",
-        selContent: ".uk-modal-dialog",
+        selContainer: ".ap-modal",
+        selContent: ".ap-modal-dialog",
         minHeight: 150
       },
       computed: {
@@ -5477,7 +5477,7 @@
     var responsive = {
       props: ["width", "height"],
       connected() {
-        addClass(this.$el, "uk-responsive-width");
+        addClass(this.$el, "ap-responsive-width");
         css(this.$el, "aspectRatio", `${this.width}/${this.height}`);
       }
     };
@@ -5533,7 +5533,7 @@
       }
     }
 
-    const clsInView = "uk-scrollspy-inview";
+    const clsInView = "ap-scrollspy-inview";
     var scrollspy = {
       args: "cls",
       props: {
@@ -5578,7 +5578,7 @@
           for (const { target: el, isIntersecting } of records) {
             if (!elements.has(el)) {
               elements.set(el, {
-                cls: data(el, "uk-scrollspy-class") || this.cls
+                cls: data(el, "ap-scrollspy-class") || this.cls
               });
             }
             const state = elements.get(el);
@@ -5624,7 +5624,7 @@
           toggleClass(el, clsInView, inview);
           toggleClass(el, state.cls);
           let match;
-          if (match = state.cls.match(/\buk-animation-[\w-]+/g)) {
+          if (match = state.cls.match(/\bap-animation-[\w-]+/g)) {
             const removeAnimationClasses = () => removeClass(el, match);
             if (inview) {
               state.off = once(el, "animationcancel animationend", removeAnimationClasses, {
@@ -5649,7 +5649,7 @@
         offset: Number
       },
       data: {
-        cls: "uk-active",
+        cls: "ap-active",
         closest: false,
         scroll: false,
         target: 'a[href]:not([role="button"])',
@@ -5738,10 +5738,10 @@
         offset: 0,
         overflowFlip: false,
         animation: "",
-        clsActive: "uk-active",
+        clsActive: "ap-active",
         clsInactive: "",
-        clsFixed: "uk-sticky-fixed",
-        clsBelow: "uk-sticky-below",
+        clsFixed: "ap-sticky-fixed",
+        clsBelow: "ap-sticky-below",
         selTarget: "",
         showOnUp: false,
         targetOffset: false
@@ -5752,7 +5752,7 @@
       connected() {
         this.start = coerce(this.start || this.top);
         this.end = coerce(this.end || this.bottom);
-        this.placeholder = $("+ .uk-sticky-placeholder", this.$el) || $('<div class="uk-sticky-placeholder"></div>');
+        this.placeholder = $("+ .ap-sticky-placeholder", this.$el) || $('<div class="ap-sticky-placeholder"></div>');
         this.isFixed = false;
         this.setActive(false);
       },
@@ -5839,7 +5839,7 @@
               offset$1 += dynamicViewport - height$1;
             }
             const overflow = this.overflowFlip ? 0 : Math.max(0, height$1 + offset$1 - viewport2);
-            const topOffset = offset(referenceElement).top - // offset possible `transform: translateY` animation 'uk-animation-slide-top' while hiding
+            const topOffset = offset(referenceElement).top - // offset possible `transform: translateY` animation 'ap-animation-slide-top' while hiding
             new DOMMatrix(css(referenceElement, "transform")).m42;
             const elHeight = dimensions(this.$el).height;
             const start = (this.start === false ? topOffset : parseProp(this.start, this.$el, topOffset)) - offset$1;
@@ -5948,7 +5948,7 @@
                 return;
               }
               if (this.animation && below) {
-                if (hasClass(this.$el, "uk-animation-leave")) {
+                if (hasClass(this.$el, "ap-animation-leave")) {
                   return;
                 }
                 Animation.out(this.$el, this.animation).then(() => this.hide(), noop);
@@ -6056,7 +6056,7 @@
     function reset(el) {
       css(el, { position: "", top: "", marginTop: "", width: "" });
     }
-    const clsTransitionDisable = "uk-transition-disable";
+    const clsTransitionDisable = "ap-transition-disable";
     function preventTransition(element) {
       if (!hasClass(element, clsTransitionDisable)) {
         addClass(element, clsTransitionDisable);
@@ -6129,7 +6129,7 @@
     };
     function applyAttributes(el) {
       const { $el } = this;
-      addClass(el, attr($el, "class"), "uk-svg");
+      addClass(el, attr($el, "class"), "ap-svg");
       for (let i = 0; i < $el.style.length; i++) {
         const prop = $el.style[i];
         css(el, prop, css($el, prop));
@@ -6158,11 +6158,11 @@
     function applyAnimation(el) {
       const length = getMaxPathLength(el);
       if (length) {
-        css(el, "--uk-animation-stroke", length);
+        css(el, "--ap-animation-stroke", length);
       }
     }
 
-    const selDisabled = ".uk-disabled *, .uk-disabled, [disabled]";
+    const selDisabled = ".ap-disabled *, .ap-disabled, [disabled]";
     var Switcher = {
       mixins: [Togglable],
       args: "connect",
@@ -6175,13 +6175,13 @@
         swiping: Boolean
       },
       data: {
-        connect: "~.uk-switcher",
+        connect: "~.ap-switcher",
         toggle: "> * > :first-child",
         itemNav: false,
         active: 0,
-        cls: "uk-active",
-        attrItem: "uk-switcher-item",
-        selVertical: ".uk-nav",
+        cls: "ap-active",
+        attrItem: "ap-switcher-item",
+        selVertical: ".ap-nav",
         followFocus: false,
         swiping: true
       },
@@ -6339,11 +6339,11 @@
       },
       data: {
         media: 960,
-        attrItem: "uk-tab-item",
-        selVertical: ".uk-tab-left,.uk-tab-right"
+        attrItem: "ap-tab-item",
+        selVertical: ".ap-tab-left,.ap-tab-right"
       },
       connected() {
-        const cls = hasClass(this.$el, "uk-tab-left") ? "uk-tab-left" : hasClass(this.$el, "uk-tab-right") ? "uk-tab-right" : false;
+        const cls = hasClass(this.$el, "ap-tab-left") ? "ap-tab-left" : hasClass(this.$el, "ap-tab-right") ? "ap-tab-right" : false;
         if (cls) {
           this.$create("toggle", this.$el, { cls, mode: "media", media: this.media });
         }
