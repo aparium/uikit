@@ -37,15 +37,15 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist'
+          path: './apariumUikit/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
       - name: Verify index.html
         run: |
-          test -f ./tests/index.html && echo "index.html exists" || echo "index.html missing"
+          test -f index.html && echo "index.html exists" || echo "index.html missing"
       
       - name: Verify themes.json
         run: |
-          test -f ./themes.json && echo "themes.json exists" || echo "themes.json missing"
+          test -f themes.json && echo "themes.json exists" || echo "themes.json missing"
