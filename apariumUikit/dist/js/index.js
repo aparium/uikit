@@ -14,7 +14,7 @@ request.send(null);
 const themes = request.status === 200 ? JSON.parse(request.responseText) : {};
 const styles = {
     core: { css: '../css/uikit-core.css' },
-    theme: { css: ../css/uikit.css' },
+    theme: { css: '../dist/css/uikit.css' },
     ...themes,
 };
 const component = location.pathname
@@ -54,9 +54,9 @@ document.writeln(
 );
 
 // add javascript
-document.writeln('<script src="./uikit.js"></script>');
+document.writeln('<script src="../uikit.js"></script>');
 document.writeln(
-    `<script src="${style.icons ? style.icons : './uikit-icons.js'}"></script>`,
+    `<script src="${style.icons ? style.icons : '../uikit-icons.js'}"></script>`,
 );
 
 on(window, 'load', () =>

@@ -11,20 +11,20 @@ const files = [
 // Replacement patterns
 const replacements = [
   {
-    target: '../dist/js/uikit-icons.js',
+    target: './dist/js/uikit-icons.js',
     replacement: './uikit-icons.js',
   },
   {
-    target: '../dist/js/uikit.js',
+    target: './dist/js/uikit.js',
     replacement: './uikit.js',
   },
   {
-    target: '../dist/css/uikit-core.css',
-    replacement: '../css/uikit-core.css',
+    target: './dist/css/uikit-core.css',
+    replacement: './css/uikit-core.css',
   },
   {
-    target: "'../dist/css/uikit.css",
-    replacement: '../css/uikit.css',
+    target: "'./dist/css/uikit.css",
+    replacement: './css/uikit.css',
   },
 ];
 

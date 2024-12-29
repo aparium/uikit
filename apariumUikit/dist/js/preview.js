@@ -467,9 +467,9 @@
     document.writeln(
       `<style>html:not(:has(body :first-child [aria-label="Component switcher"])) {padding-top: 80px}</style>`
     );
-    document.writeln('<script src="./uikit.js"><\/script>');
+    document.writeln('<script src="../uikit.js"><\/script>');
     document.writeln(
-      `<script src="${style.icons ? style.icons : "./uikit-icons.js"}"><\/script>`
+      `<script src="${style.icons ? style.icons : "../uikit-icons.js"}"><\/script>`
     );
     on(
       window,
