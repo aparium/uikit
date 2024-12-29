@@ -439,11 +439,11 @@
     const key = "_uikit_style";
     const keyinverse = "_uikit_inverse";
     const request = new XMLHttpRequest();
-    request.open("GET", "https://cdn.jsdelivr.net/gh/aparium/uikit@develop/themes.json", false);
+    request.open("GET", "../themes.json", false);
     request.send(null);
     const themes = request.status === 200 ? JSON.parse(request.responseText) : {};
     const styles = {
-      core: { css: "'https://cdn.jsdelivr.net/gh/aparium/uikit@develop/dist/css/uikit-core.css" },
+      core: { css: "../dist/css/uikit-core.css" },
       theme: { css: "../dist/css/uikit.css" },
       ...themes
     };
@@ -467,9 +467,9 @@
     document.writeln(
       `<style>html:not(:has(body :first-child [aria-label="Component switcher"])) {padding-top: 80px}</style>`
     );
-    document.writeln('<script src="https://cdn.jsdelivr.net/gh/aparium/uikit@develop/dist/js/uikit.js"><\/script>');
+    document.writeln('<script src="../dist/js/uikit.js"><\/script>');
     document.writeln(
-      `<script src="${style.icons ? style.icons : "'https://cdn.jsdelivr.net/gh/aparium/uikit@develop/dist/js/uikit-icons.js'"}"><\/script>`
+      `<script src="${style.icons ? style.icons : "../dist/js/uikit-icons.js"}"><\/script>`
     );
     on(
       window,

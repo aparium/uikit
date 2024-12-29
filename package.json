@@ -1,7 +1,7 @@
 {
-    "name": "uikit",
-    "title": "UIkit",
-    "description": "UIkit is a lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+    "name": "aparium-uikit",
+    "title": "Aparium UIkit",
+    "description": "Our version of the UIkit which is a lightweight and modular front-end framework for developing fast and powerful web interfaces.",
     "version": "3.21.16",
     "main": "dist/js/uikit.js",
     "style": "dist/css/uikit.css",
@@ -13,27 +13,37 @@
     "scripts": {
         "build-scss": "node build/scss",
         "compile": "pnpm compile-less && pnpm compile-js",
+        "compile-all": "pnpm icons && pnpm compile-less rtl && pnpm compile-less && pnpm compile-js && node build/icons && node build/less && node build/build",
         "compile-js": "node build/build",
         "compile-less": "pnpm icons && node build/less",
         "compile-rtl": "pnpm compile-less rtl",
+        "generate-favicon": "gulp generate-favicon",
         "icons": "node build/icons",
+        "inject-favicon": "gulp inject-favicon-markups",
         "prefix": "node build/prefix",
+        "publish-github": "node prepare-push-to-github",
         "scope": "node build/scope",
         "release": "node build/release",
         "watch": "chokidar \"**/*.less\" --initial -i \"node_modules\" -c \"node build/less\""
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/uikit/uikit.git"
+        "url": "git+https://github.com/aparium/uikit.git",
+        "forked-from": "git+https://github.com/uikit/uikit.git"
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/uikit/uikit/issues"
+        "url": "https://github.com/aparium/uikit/issues"
     },
-    "homepage": "https://getuikit.com",
+    "homepage": "https://aparium.github.io/aparium-uikit/",
+    "credit": {
+        "original": "https://getuikit.com",
+        "note": "This is a forked version of UIkit, tailored for Aparium Hotel Group. https://getuikit.com"
+    },
     "packageManager": "pnpm@9.8.0",
     "devDependencies": {
         "@eslint/js": "^9.6.0",
+        "@realfavicongenerator/gulp-real-favicon": "^0.4.12",
         "@rollup/plugin-alias": "^5.1.0",
         "@rollup/plugin-replace": "^6.0.1",
         "archiver": "^7.0.1",
