@@ -34,6 +34,10 @@ const paths = [
     sourcePath: '../custom/favicon',
     destinationPath: '../apariumUikit/dist/favicon',
   },
+  {
+    sourcePath: '../tests/images',
+    destinationPath: '../apariumUikit/dist/images',
+  },
 ];
 
 // Copy files and directories
