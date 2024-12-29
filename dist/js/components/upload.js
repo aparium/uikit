@@ -1,9 +1,9 @@
-/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitupload', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitUpload = factory(global.apUIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitUpload = factory(global.UIkit.util));
 })(this, (function (uikitUtil) { 'use strict';
 
     var I18n = {
@@ -47,7 +47,7 @@
       },
       data: {
         allow: false,
-        clsDragover: "ap-dragover",
+        clsDragover: "uk-dragover",
         concurrent: 1,
         maxSize: 0,
         method: "POST",
@@ -226,8 +226,8 @@
       });
     }
 
-    if (typeof window !== "undefined" && window.apUIkit) {
-      window.apUIkit.component("upload", Component);
+    if (typeof window !== "undefined" && window.UIkit) {
+      window.UIkit.component("upload", Component);
     }
 
     return Component;

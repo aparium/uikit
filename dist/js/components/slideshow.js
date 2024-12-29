@@ -1,9 +1,9 @@
-/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitslideshow', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitSlideshow = factory(global.apUIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitSlideshow = factory(global.UIkit.util));
 })(this, (function (util) { 'use strict';
 
     var Class = {
@@ -129,7 +129,7 @@
     function toMedia(value, element) {
       if (util.isString(value)) {
         if (util.startsWith(value, "@")) {
-          value = util.toFloat(util.css(element, `--ap-breakpoint-${value.slice(1)}`));
+          value = util.toFloat(util.css(element, `--uk-breakpoint-${value.slice(1)}`));
         } else if (isNaN(value)) {
           return value;
         }
@@ -1264,7 +1264,7 @@
               const item = util.toNumber(cmd);
               const active = item === index;
               util.toggleClass(el, this.clsActive, active);
-              util.toggleClass(button, "ap-disabled", !!this.parallax);
+              util.toggleClass(button, "uk-disabled", !!this.parallax);
               util.attr(button, {
                 "aria-selected": active,
                 tabindex: active && !this.parallax ? null : -1
@@ -1275,7 +1275,7 @@
             } else {
               util.toggleClass(
                 el,
-                "ap-invisible",
+                "uk-invisible",
                 this.finite && (cmd === "previous" && index === 0 || cmd === "next" && index >= this.maxIndex)
               );
             }
@@ -1316,11 +1316,11 @@
         prevIndex: -1,
         stack: [],
         percent: 0,
-        clsActive: "ap-active",
+        clsActive: "uk-active",
         clsActivated: "",
-        clsEnter: "ap-slide-enter",
-        clsLeave: "ap-slide-leave",
-        clsSlideActive: "ap-slide-active",
+        clsEnter: "uk-slide-enter",
+        clsLeave: "uk-slide-leave",
+        clsSlideActive: "uk-slide-active",
         Transitioner: false,
         transitionOptions: {}
       }),
@@ -1468,7 +1468,7 @@
       },
       data: {
         animation: "slide",
-        clsActivated: "ap-transition-active",
+        clsActivated: "uk-transition-active",
         Animations: Animations$1,
         Transitioner
       },
@@ -1595,9 +1595,9 @@
         ratio: "16:9",
         minHeight: void 0,
         maxHeight: void 0,
-        selList: ".ap-slideshow-items",
-        attrItem: "ap-slideshow-item",
-        selNav: ".ap-slideshow-nav",
+        selList: ".uk-slideshow-items",
+        attrItem: "uk-slideshow-item",
+        selNav: ".uk-slideshow-nav",
         Animations
       },
       watch: {
@@ -1617,8 +1617,8 @@
       }
     };
 
-    if (typeof window !== "undefined" && window.apUIkit) {
-      window.apUIkit.component("slideshow", Component);
+    if (typeof window !== "undefined" && window.UIkit) {
+      window.UIkit.component("slideshow", Component);
     }
 
     return Component;

@@ -1,9 +1,9 @@
-/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitsortable', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitSortable = factory(global.apUIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitSortable = factory(global.UIkit.util));
 })(this, (function (uikitUtil) { 'use strict';
 
     function callUpdate(instance, e = "update") {
@@ -68,8 +68,8 @@
         firstColumn: Boolean
       },
       data: {
-        margin: "ap-margin-small-top",
-        firstColumn: "ap-first-column"
+        margin: "uk-margin-small-top",
+        firstColumn: "uk-first-column"
       },
       observe: [
         mutation({
@@ -246,8 +246,8 @@
       return new Promise((resolve) => requestAnimationFrame(resolve));
     }
 
-    const clsLeave = "ap-transition-leave";
-    const clsEnter = "ap-transition-enter";
+    const clsLeave = "uk-transition-leave";
+    const clsEnter = "uk-transition-enter";
     function fade(action, target, duration, stagger = 0) {
       const index = transitionIndex(target, true);
       const propsIn = { opacity: 1 };
@@ -371,13 +371,13 @@
       data: {
         group: false,
         threshold: 5,
-        clsItem: "ap-sortable-item",
-        clsPlaceholder: "ap-sortable-placeholder",
-        clsDrag: "ap-sortable-drag",
-        clsDragState: "ap-drag",
-        clsBase: "ap-sortable",
-        clsNoDrag: "ap-sortable-nodrag",
-        clsEmpty: "ap-sortable-empty",
+        clsItem: "uk-sortable-item",
+        clsPlaceholder: "uk-sortable-placeholder",
+        clsDrag: "uk-sortable-drag",
+        clsDragState: "uk-drag",
+        clsBase: "uk-sortable",
+        clsNoDrag: "uk-sortable-nodrag",
+        clsEmpty: "uk-sortable-empty",
         clsCustom: "",
         handle: false,
         pos: {}
@@ -663,8 +663,8 @@
       };
     }
 
-    if (typeof window !== "undefined" && window.apUIkit) {
-      window.apUIkit.component("sortable", Component);
+    if (typeof window !== "undefined" && window.UIkit) {
+      window.UIkit.component("sortable", Component);
     }
 
     return Component;

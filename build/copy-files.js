@@ -30,7 +30,7 @@ const paths = [
     destinationPath: '../apariumUikit/dist/js/preview.min.js',
   },
   {
-    sourcePath: '../custom/favicons',
+    sourcePath: '../custom/favicon',
     destinationPath: '../apariumUikit/dist',
   },
 ];

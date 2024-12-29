@@ -1,9 +1,9 @@
-/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitslider', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitSlider = factory(global.apUIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitSlider = factory(global.UIkit.util));
 })(this, (function (util) { 'use strict';
 
     function callUpdate(instance, e = "update") {
@@ -487,7 +487,7 @@
               const item = util.toNumber(cmd);
               const active = item === index;
               util.toggleClass(el, this.clsActive, active);
-              util.toggleClass(button, "ap-disabled", !!this.parallax);
+              util.toggleClass(button, "uk-disabled", !!this.parallax);
               util.attr(button, {
                 "aria-selected": active,
                 tabindex: active && !this.parallax ? null : -1
@@ -498,7 +498,7 @@
             } else {
               util.toggleClass(
                 el,
-                "ap-invisible",
+                "uk-invisible",
                 this.finite && (cmd === "previous" && index === 0 || cmd === "next" && index >= this.maxIndex)
               );
             }
@@ -539,11 +539,11 @@
         prevIndex: -1,
         stack: [],
         percent: 0,
-        clsActive: "ap-active",
+        clsActive: "uk-active",
         clsActivated: "",
-        clsEnter: "ap-slide-enter",
-        clsLeave: "ap-slide-leave",
-        clsSlideActive: "ap-slide-active",
+        clsEnter: "uk-slide-enter",
+        clsLeave: "uk-slide-leave",
+        clsSlideActive: "uk-slide-active",
         Transitioner: false,
         transitionOptions: {}
       }),
@@ -715,7 +715,7 @@
     function toMedia(value, element) {
       if (util.isString(value)) {
         if (util.startsWith(value, "@")) {
-          value = util.toFloat(util.css(element, `--ap-breakpoint-${value.slice(1)}`));
+          value = util.toFloat(util.css(element, `--uk-breakpoint-${value.slice(1)}`));
         } else if (isNaN(value)) {
           return value;
         }
@@ -1535,10 +1535,10 @@
       data: {
         center: false,
         sets: false,
-        attrItem: "ap-slider-item",
-        selList: ".ap-slider-items",
-        selNav: ".ap-slider-nav",
-        clsContainer: "ap-slider-container",
+        attrItem: "uk-slider-item",
+        selList: ".uk-slider-items",
+        selNav: ".uk-slider-nav",
+        clsContainer: "uk-slider-container",
         active: "all",
         Transitioner
       },
@@ -1791,8 +1791,8 @@
       return Math.max(0, ...util.children(list).map((el) => util.dimensions(el).width));
     }
 
-    if (typeof window !== "undefined" && window.apUIkit) {
-      window.apUIkit.component("slider", Component);
+    if (typeof window !== "undefined" && window.UIkit) {
+      window.UIkit.component("slider", Component);
     }
 
     return Component;

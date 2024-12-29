@@ -1,9 +1,9 @@
-/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitparallax', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitParallax = factory(global.apUIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitParallax = factory(global.UIkit.util));
 })(this, (function (uikitUtil) { 'use strict';
 
     function callUpdate(instance, e = "update") {
@@ -109,7 +109,7 @@
     function toMedia(value, element) {
       if (uikitUtil.isString(value)) {
         if (uikitUtil.startsWith(value, "@")) {
-          value = uikitUtil.toFloat(uikitUtil.css(element, `--ap-breakpoint-${value.slice(1)}`));
+          value = uikitUtil.toFloat(uikitUtil.css(element, `--uk-breakpoint-${value.slice(1)}`));
         } else if (isNaN(value)) {
           return value;
         }
@@ -712,8 +712,8 @@
       return el ? "offsetTop" in el ? el : getOffsetElement(uikitUtil.parent(el)) : document.documentElement;
     }
 
-    if (typeof window !== "undefined" && window.apUIkit) {
-      window.apUIkit.component("parallax", Component);
+    if (typeof window !== "undefined" && window.UIkit) {
+      window.UIkit.component("parallax", Component);
     }
 
     return Component;

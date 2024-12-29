@@ -1,9 +1,9 @@
-/*! apUIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
     typeof define === 'function' && define.amd ? define('uikitlightbox_panel', ['uikit-util'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.apUIkitLightbox_panel = factory(global.apUIkit.util));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkitLightbox_panel = factory(global.UIkit.util));
 })(this, (function (util) { 'use strict';
 
     function callUpdate(instance, e = "update") {
@@ -289,8 +289,8 @@
         velocity: 0.2,
         origin: false,
         transition: "ease",
-        clsEnter: "ap-togglable-enter",
-        clsLeave: "ap-togglable-leave"
+        clsEnter: "uk-togglable-enter",
+        clsLeave: "uk-togglable-leave"
       },
       computed: {
         hasAnimation: ({ animation }) => !!animation[0],
@@ -469,7 +469,7 @@
         role: String
       },
       data: {
-        cls: "ap-open",
+        cls: "uk-open",
         escClose: true,
         bgClose: true,
         overlay: true,
@@ -1134,7 +1134,7 @@
               const item = util.toNumber(cmd);
               const active = item === index;
               util.toggleClass(el, this.clsActive, active);
-              util.toggleClass(button, "ap-disabled", !!this.parallax);
+              util.toggleClass(button, "uk-disabled", !!this.parallax);
               util.attr(button, {
                 "aria-selected": active,
                 tabindex: active && !this.parallax ? null : -1
@@ -1145,7 +1145,7 @@
             } else {
               util.toggleClass(
                 el,
-                "ap-invisible",
+                "uk-invisible",
                 this.finite && (cmd === "previous" && index === 0 || cmd === "next" && index >= this.maxIndex)
               );
             }
@@ -1186,11 +1186,11 @@
         prevIndex: -1,
         stack: [],
         percent: 0,
-        clsActive: "ap-active",
+        clsActive: "uk-active",
         clsActivated: "",
-        clsEnter: "ap-slide-enter",
-        clsLeave: "ap-slide-leave",
-        clsSlideActive: "ap-slide-active",
+        clsEnter: "uk-slide-enter",
+        clsLeave: "uk-slide-leave",
+        clsSlideActive: "uk-slide-active",
         Transitioner: false,
         transitionOptions: {}
       }),
@@ -1338,7 +1338,7 @@
       },
       data: {
         animation: "slide",
-        clsActivated: "ap-transition-active",
+        clsActivated: "uk-transition-active",
         Animations: Animations$1,
         Transitioner
       },
@@ -1497,20 +1497,20 @@
         delayControls: 3e3,
         videoAutoplay: false,
         items: [],
-        cls: "ap-open",
-        clsPage: "ap-lightbox-page",
-        clsFit: "ap-lightbox-items-fit",
-        clsZoom: "ap-lightbox-zoom",
-        attrItem: "ap-lightbox-item",
-        selList: ".ap-lightbox-items",
-        selClose: ".ap-close-large",
-        selNav: ".ap-lightbox-thumbnav, .ap-lightbox-dotnav",
-        selCaption: ".ap-lightbox-caption",
-        selCounter: ".ap-lightbox-counter",
+        cls: "uk-open",
+        clsPage: "uk-lightbox-page",
+        clsFit: "uk-lightbox-items-fit",
+        clsZoom: "uk-lightbox-zoom",
+        attrItem: "uk-lightbox-item",
+        selList: ".uk-lightbox-items",
+        selClose: ".uk-close-large",
+        selNav: ".uk-lightbox-thumbnav, .uk-lightbox-dotnav",
+        selCaption: ".uk-lightbox-caption",
+        selCounter: ".uk-lightbox-counter",
         pauseOnHover: false,
         velocity: 2,
         Animations,
-        template: `<div class="ap-lightbox ap-overflow-hidden"> <div class="ap-lightbox-items"></div> <div class="ap-position-top-right ap-position-small ap-transition-fade" ap-inverse> <button class="ap-lightbox-close ap-close-large" type="button" ap-close></button> </div> <div class="ap-lightbox-slidenav ap-position-center-left ap-position-medium ap-transition-fade" ap-inverse> <a href ap-slidenav-previous ap-lightbox-item="previous"></a> </div> <div class="ap-lightbox-slidenav ap-position-center-right ap-position-medium ap-transition-fade" ap-inverse> <a href ap-slidenav-next ap-lightbox-item="next"></a> </div> <div class="ap-position-center-right ap-position-medium ap-transition-fade" ap-inverse style="max-height: 90vh; overflow: auto;"> <ul class="ap-lightbox-thumbnav ap-lightbox-thumbnav-vertical ap-thumbnav ap-thumbnav-vertical"></ul> <ul class="ap-lightbox-dotnav ap-dotnav ap-dotnav-vertical"></ul> </div> <div class="ap-lightbox-counter ap-text-large ap-position-top-left ap-position-small ap-transition-fade" ap-inverse></div> <div class="ap-lightbox-caption ap-position-bottom ap-text-center ap-transition-slide-bottom ap-transition-opaque"></div> </div>`
+        template: `<div class="uk-lightbox uk-overflow-hidden"> <div class="uk-lightbox-items"></div> <div class="uk-position-top-right uk-position-small uk-transition-fade" uk-inverse> <button class="uk-lightbox-close uk-close-large" type="button" uk-close></button> </div> <div class="uk-lightbox-slidenav uk-position-center-left uk-position-medium uk-transition-fade" uk-inverse> <a href uk-slidenav-previous uk-lightbox-item="previous"></a> </div> <div class="uk-lightbox-slidenav uk-position-center-right uk-position-medium uk-transition-fade" uk-inverse> <a href uk-slidenav-next uk-lightbox-item="next"></a> </div> <div class="uk-position-center-right uk-position-medium uk-transition-fade" uk-inverse style="max-height: 90vh; overflow: auto;"> <ul class="uk-lightbox-thumbnav uk-lightbox-thumbnav-vertical uk-thumbnav uk-thumbnav-vertical"></ul> <ul class="uk-lightbox-dotnav uk-dotnav uk-dotnav-vertical"></ul> </div> <div class="uk-lightbox-counter uk-text-large uk-position-top-left uk-position-small uk-transition-fade" uk-inverse></div> <div class="uk-lightbox-caption uk-position-bottom uk-text-center uk-transition-slide-bottom uk-transition-opaque"></div> </div>`
       }),
       created() {
         let $el = util.$(this.template);
@@ -1519,24 +1519,24 @@
         }
         const list = util.$(this.selList, $el);
         const navType = this.$props.nav;
-        util.remove(util.$$(this.selNav, $el).filter((el) => !util.matches(el, `.ap-${navType}`)));
+        util.remove(util.$$(this.selNav, $el).filter((el) => !util.matches(el, `.uk-${navType}`)));
         for (const [i, item] of this.items.entries()) {
           util.append(list, "<div>");
           if (navType === "thumbnav") {
             util.wrapAll(
               toThumbnavItem(item, this.videoAutoplay),
-              util.append(util.$(this.selNav, $el), `<li ap-lightbox-item="${i}"><a href></a></li>`)
+              util.append(util.$(this.selNav, $el), `<li uk-lightbox-item="${i}"><a href></a></li>`)
             );
           }
         }
         if (!this.slidenav) {
-          util.remove(util.$$(".ap-lightbox-slidenav", $el));
+          util.remove(util.$$(".uk-lightbox-slidenav", $el));
         }
         if (!this.counter) {
           util.remove(util.$(this.selCounter, $el));
         }
         util.addClass(list, this.clsFit);
-        const close = util.$("[ap-close]", $el);
+        const close = util.$("[uk-close]", $el);
         const closeLabel = this.t("close");
         if (close && closeLabel) {
           close.dataset.i18n = JSON.stringify({ label: closeLabel });
@@ -1649,7 +1649,7 @@
           name: "itemload",
           async handler(_, item) {
             const { source: src, type, attrs = {} } = item;
-            this.setItem(item, "<span ap-spinner ap-inverse></span>");
+            this.setItem(item, "<span uk-spinner uk-inverse></span>");
             if (!src) {
               return;
             }
@@ -1657,8 +1657,8 @@
             const iframeAttrs = {
               allowfullscreen: "",
               style: "max-width: 100%; box-sizing: border-box;",
-              "ap-responsive": "",
-              "ap-video": `${Boolean(this.videoAutoplay)}`
+              "uk-responsive": "",
+              "uk-video": `${Boolean(this.videoAutoplay)}`
             };
             if (type === "image" || isImage(src)) {
               const img = createEl("img");
@@ -1678,7 +1678,7 @@
                 controls: inline ? null : "",
                 loop: inline ? "" : null,
                 poster: this.videoAutoplay ? null : item.poster,
-                "ap-video": inline ? "automute: true" : Boolean(this.videoAutoplay),
+                "uk-video": inline ? "automute: true" : Boolean(this.videoAutoplay),
                 ...attrs
               });
               util.on(video, "loadedmetadata", () => this.setItem(item, video));
@@ -1689,7 +1689,7 @@
                 createEl("iframe", {
                   src,
                   allowfullscreen: "",
-                  class: "ap-lightbox-iframe",
+                  class: "uk-lightbox-iframe",
                   ...attrs
                 })
               );
@@ -1769,15 +1769,15 @@
           return this.slides[this.items.indexOf(item)];
         },
         setError(item) {
-          this.setItem(item, '<span ap-icon="icon: bolt; ratio: 2" ap-inverse></span>');
+          this.setItem(item, '<span uk-icon="icon: bolt; ratio: 2" uk-inverse></span>');
         },
         showControls() {
           clearTimeout(this.controlsTimer);
           this.controlsTimer = this.delayControls && setTimeout(this.hideControls, this.delayControls);
-          util.addClass(this.$el, "ap-active", "ap-transition-active");
+          util.addClass(this.$el, "uk-active", "uk-transition-active");
         },
         hideControls() {
-          util.removeClass(this.$el, "ap-active", "ap-transition-active");
+          util.removeClass(this.$el, "uk-active", "uk-transition-active");
         }
       }
     };
@@ -1791,7 +1791,7 @@
         src: item.thumb,
         loop: "",
         playsinline: "",
-        "ap-video": `autoplay: ${Boolean(videoAutoplay)}; automute: true`
+        "uk-video": `autoplay: ${Boolean(videoAutoplay)}; automute: true`
       }) : createEl("canvas");
       if (item.thumbRatio) {
         el.style.aspectRatio = item.thumbRatio;
@@ -1805,8 +1805,8 @@
       return src == null ? void 0 : src.match(/\.(mp4|webm|ogv)($|\?)/i);
     }
 
-    if (typeof window !== "undefined" && window.apUIkit) {
-      window.apUIkit.component("lightboxPanel", Component);
+    if (typeof window !== "undefined" && window.UIkit) {
+      window.UIkit.component("lightboxPanel", Component);
     }
 
     return Component;
