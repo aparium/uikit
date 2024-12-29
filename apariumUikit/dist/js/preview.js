@@ -439,7 +439,7 @@
     const key = "_uikit_style";
     const keyinverse = "_uikit_inverse";
     const request = new XMLHttpRequest();
-    request.open("GET", "./themes.json", false);
+    request.open("GET", "themes.json", false);
     request.send(null);
     const themes = request.status === 200 ? JSON.parse(request.responseText) : {};
     const styles = {
