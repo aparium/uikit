@@ -30,7 +30,7 @@ const replacements = [
   },
   {
     target: '../themes.json',
-    replacement: './themes.json',
+    replacement: 'themes.json',
   },
 ];
 
