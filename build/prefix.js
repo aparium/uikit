@@ -12,6 +12,7 @@ if (args.h || args.help) {
 
         prefix.js // will prompt for a prefix to replace the current one with
         prefix.js -p=xyz // will replace any existing prefix with xyz
+
     `);
     process.exit(0);
 }
@@ -27,8 +28,9 @@ if (currentPrefix === prefix) {
 await replacePrefix(currentPrefix, prefix);
 
 async function findExistingPrefix() {
-    const cssContent = await read(`${path}/css/uikit.css`);
-    return cssContent.match(/([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)(-[a-z]+)?-grid/)?.[1];
+    return (await read(`${path}/css/uikit.css`)).match(
+        /([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)(-[a-z]+)?-grid/,
+    )?.[1];
 }
 
 async function getPrefix() {
@@ -58,19 +60,17 @@ function isValidPrefix(prefix) {
 }
 
 async function replacePrefix(from, to) {
-    const cssFiles = await glob(`${path}/**/*.css`);
-    for (const file of cssFiles) {
+    for (const file of await glob(`${path}/**/*.css`)) {
         await replaceInFile(file, (data) =>
-            data.replace(new RegExp(`${from}-([a-z\\d-]+)`, 'g'), `${to}-$1`)
+            data.replace(new RegExp(`${from}-([a-z\\d-]+)`, 'g'), `${to}-$1`),
         );
     }
 
-    const jsFiles = await glob(`${path}/**/*.js`);
-    for (const file of jsFiles) {
+    for (const file of await glob(`${path}/**/*.js`)) {
         await replaceInFile(file, (data) =>
             data
                 .replace(new RegExp(`${from}-`, 'g'), `${to}-`)
-                .replace(new RegExp(`(${from})?UIkit`, 'g'), `${to === 'uk' ? '' : to}UIkit`)
+                .replace(new RegExp(`(${from})?UIkit`, 'g'), `${to === 'uk' ? '' : to}UIkit`),
         );
     }
 }
