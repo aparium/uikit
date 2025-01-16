@@ -11,8 +11,8 @@
 @label-warning-bg: @global-warning-background;
 @label-success-bg: @global-success-background;
 @label-danger-bg: @global-danger-background;
+@label-dark-bg: #000;
 @label-font-family: @font-family-sans;
-
 
 // Component
 // ========================================================================
@@ -40,6 +40,10 @@
 .hook-label-danger() {
     color: #FFF;
     background-color: @label-danger-bg;
+}
+.hook-label-dark() {
+    color: #FFF;
+    background-color: @label-dark-bg;
 }
 
 // Miscellaneous
@@ -75,4 +79,7 @@
 
 .uk-label-inverse {
     .hook-inverse-label();
+}
+.uk-label-dark {
+    .hook-label-dark();
 }

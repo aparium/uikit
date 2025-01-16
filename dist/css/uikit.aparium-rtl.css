@@ -1,4 +1,4 @@
-/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2024 YOOtheme | MIT License */
+/*! UIkit 3.21.16 | https://www.getuikit.com | (c) 2014 - 2025 YOOtheme | MIT License */
 /* ========================================================================
    Component: Base
  ========================================================================== */
@@ -17645,6 +17645,10 @@ template {
 .uk-label-inverse {
   background-color: #000;
   color: #FFF;
+}
+.uk-label-dark {
+  color: #FFF;
+  background-color: #000;
 }
 /* ========================================================================
    Component: Modal

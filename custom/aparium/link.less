@@ -7,6 +7,31 @@
 // Variables
 // ========================================================================
 
+@button-text-light:                           #FFF;
+@button-text-dark:                            #000;
+@button-text-gray:                            #787878;
+@button-text-danger:                          #FFF;
+@button-text-link:                            #000;
+
+@link-text-light-active:                      #FFF;
+@link-text-dark-active:                       #000;
+@link-text-gray-active:                       #787878;
+@link-text-danger-active:                     @global-inverse-color;
+@link-text-disabled:                          @global-muted-color;
+
+@link-text-light-hover:                       #FFF;
+@link-text-dark-hover:                        #000;
+@link-text-gray-hover:                        #787878;
+@link-text-danger-hover:                      @global-inverse-color;
+
+@link-text-light-active:                      #FFF;
+@link-text-dark-active:                       #000;
+@link-text-gray-active:                       #787878;
+@link-text-danger-active:                     @global-inverse-color;
+@link-text-disabled:                          @global-muted-color;
+
+@link-font-family:                          @font-family-sans;
+
 
 // Muted
 // ========================================================================
@@ -23,12 +48,20 @@
 
 .hook-link-text-hover() {}
 
-.hook-link-text-dark() {}
-.hook-link-text-hover-dark() {}
+.hook-link-text-dark() {
+  color: @button-text-dark;
+}
+.hook-link-text-hover-dark() {
+  color: @link-text-dark-hover;
+}
 
-.hook-link-text-light() {}
+.hook-link-text-light() {
+  color: @button-text-light;
+}
 
-.hook-link-text-hover-light() {}
+.hook-link-text-hover-light() {
+  color: @link-text-light-hover;
+}
 
 // Heading
 // ========================================================================
